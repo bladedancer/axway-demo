@@ -3,6 +3,7 @@
 # Platform: dev, preprod, staging, prod
 PLATFORM_ENV=staging 
 PLATFORM_URL=https://platform.axwaytest.net
+AUTH_URL=https://login-preprod.axway.com/auth
 
 # Amplify Central
 ENVIRONMENT="DemoEnv"
