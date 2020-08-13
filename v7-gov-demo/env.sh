@@ -9,6 +9,10 @@ AUTH_URL=https://login-preprod.axway.com/auth
 ENVIRONMENT="DemoEnv"
 AMPLIFY_URL=https://gmatthews.dev.ampc.axwaytest.net
 
+# API Manager
+APIMANAGER_HOST=localhost
+APIMANAGER_PORT=8075
+
 # If DOSA is not set a new service account will be created
 DOSA=
 DOSA_PRIV=./private_key.pem

@@ -8,6 +8,8 @@ run "curl -L https://axway.bintray.com/generic-repo/v7-agents/v7_discovery_agent
 run "unzip -d discovery discovery/discovery_agent-latest.zip"
 
 desc "Configuring agent"
+yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.host $APIMANAGER_HOST
+yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.port $APIMANAGER_PORT
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.auth.username $APIADMIN
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.auth.password $APIADMIN_PASSWORD
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.ssl.insecureSkipVerify true

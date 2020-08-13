@@ -28,4 +28,5 @@ if [ -z $DOSA ]; then
     . $ROOT/demo-setup-service-account.sh    
 fi
 
+. $ROOT/demo-setup-governance.sh
 . $ROOT/demo-setup-discovery.sh
