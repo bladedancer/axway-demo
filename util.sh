@@ -5,6 +5,11 @@ readonly  green=$(tput bold; tput setaf 2)
 readonly yellow=$(tput bold; tput setaf 3)
 readonly   blue=$(tput bold; tput setaf 6)
 
+function comment() {
+    maybe_first_prompt
+    echo "$blue# $@$reset"
+}
+
 function desc() {
     maybe_first_prompt
     echo "$blue# $@$reset"
