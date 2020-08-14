@@ -43,6 +43,19 @@ spec:
         - PUT
         - POST
         - DELETE
+---
+apiVersion: v1alpha1
+group: management
+kind: RateLimitRule
+title: Rate limit for Griffin Instruments v1
+name: griffininstrumentsv1ratelimit
+metadata:
+    scope:
+      kind: Environment
+      name: demostaging
+spec:
+    virtualAPIDefinition: griffininstrumentsv1
+    transactionPerSecond: 100
 ---    
 apiVersion: v1alpha1
 group: management
