@@ -1,0 +1,68 @@
+apiVersion: v1alpha1
+group: management
+kind: CorsRule
+title: Permissive CORS Rule
+name: allowallcors
+metadata:
+    scope:
+      kind: Environment
+      name: demostaging
+spec:
+    description: Cross-Origin Resource Sharing rule for the Griffin Instruments Virtual API.
+    virtualAPIDefinition: griffininstrumentsv1
+    accessControlAllowOrigin: "*"
+    accessControlMaxAge: 600
+    accessControlAllowHeaders:
+        - Location
+        - X-Axway-Tenant-Id
+    accessControlAllowMethods:
+        - GET
+        - PUT
+        - POST
+        - DELETE
+---
+apiVersion: v1alpha1
+group: management
+kind: CorsRule
+title: Localhost CORS Rule on Griffin Instruments V1
+name: localhostcors
+metadata:
+    scope:
+      kind: Environment
+      name: demostaging
+spec:
+    description: Cross-Origin Resource Sharing rule that only allows localhost.
+    virtualAPIDefinition: griffininstrumentsv1
+    accessControlAllowOrigin: "localhost"
+    accessControlMaxAge: 600
+    accessControlAllowHeaders:
+        - Location
+        - X-Axway-Tenant-Id
+    accessControlAllowMethods:
+        - GET
+        - PUT
+        - POST
+        - DELETE
+---    
+apiVersion: v1alpha1
+group: management
+kind: PathRoute
+title: Route for Musical Instruments v1
+name: griffininstrumentsv1route
+metadata:
+    scope:
+      kind: Environment
+      name: demostaging
+spec:
+    virtualAPIDefinition: griffininstrumentsv1
+    cors: allowallcors
+    auth: APIKeyAuthRule:apikeyauth
+    prefix: /api/music
+    route:
+        apiServiceInstance: musicalinstrumentsv1ars
+        credential: HttpBasicCredential:musicalinstrumentcredentialdefault
+        perPath:
+            - path: /instruments/query
+              cors: localhostcors
+              auth: APIKeyAuthRule:apikeyauth
+              credential: APIKeyCredential:musicalinstrumentcredentialoverride

@@ -1,9 +1,12 @@
 apiVersion: v1alpha1
 group: management
-scope: demostaging
 kind: APIService
 title: Music Instruments API
 name: musicalinstruments
+metadata:
+  scope:
+    kind: Environment
+    name: demostaging
 attributes:
   version: 1.0.0
 tags:
@@ -18,10 +21,13 @@ spec:
 ---
 apiVersion: v1alpha1
 group: management
-scope: demostaging
 kind: APIServiceRevision
 title: Music Instruments API V1
 name: musicalinstrumentsv1
+metadata:
+    scope:
+      kind: Environment
+      name: demostaging
 attributes:
     version: 1.0.0
 tags:
@@ -35,10 +41,13 @@ spec:
 ---
 apiVersion: v1alpha1
 group: management
-scope: demostaging
 kind: APIServiceInstance
 title: Music Instruments API V1 on ARS
 name: musicalinstrumentsv1ars
+metadata:
+    scope:
+      kind: Environment
+      name: demostaging
 attributes:
     version: 1.0.0
 tags:
@@ -49,8 +58,8 @@ spec:
     apiServiceRevision: musicalinstrumentsv1
     endpoint:
     - host: "f0d9c067be62dc9adeb44b57bc0eeaa601631b47.cloudapp-enterprise.appcelerator.com"
-    port: 80
-    protocol: "http"
-    routing:
+      port: 80
+      protocol: "http"
+      routing:
         basePath: "/music/v2"
     

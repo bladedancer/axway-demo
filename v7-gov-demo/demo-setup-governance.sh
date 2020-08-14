@@ -23,4 +23,4 @@ yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml central.auth.c
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml central.auth.privateKey $(realpath $DOSA_PRIV)
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml central.auth.publicKey $(realpath $DOSA_PUB)
 
-run "vi $(dirname ${BASH_SOURCE})/governance/governance_agent.yml"
+show "$(dirname ${BASH_SOURCE})/governance/governance_agent.yml"

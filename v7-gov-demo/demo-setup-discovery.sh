@@ -23,4 +23,4 @@ yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.auth.cli
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.auth.privateKey $(realpath $DOSA_PRIV)
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.auth.publicKey $(realpath $DOSA_PUB)
 
-run "vi $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml"
+show "$(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml"

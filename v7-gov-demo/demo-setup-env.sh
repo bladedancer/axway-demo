@@ -16,3 +16,5 @@ ORG_ID=$(echo $AUTH_RESPONSE | jq .org.org_id)
 
 TEAM_RESPONSE=$(curl -s -G -H "Authorization: Bearer $USER_ACCESS_TOKEN" -H "X-Axway-Tenant-Id: $ORG_ID" $AMPLIFY_URL/api/v1/teams --data-urlencode "query=name==\"$TEAM\"")
 TEAM_ID=$(echo $TEAM_RESPONSE | jq -r ".[0].id")
+
+desc "\nORG_ID=$ORG_ID\nTEAM_ID=$TEAM_ID"

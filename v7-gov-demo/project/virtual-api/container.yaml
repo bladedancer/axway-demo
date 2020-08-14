@@ -1,9 +1,12 @@
 apiVersion: v1alpha1
 group: management
-scope: demostaging
 kind: VirtualAPI
 title: Griffin Instruments
 name: griffininstruments
+metadata:
+  scope:
+    kind: Environment
+    name: demostaging
 tags:
   - frontend
   - music
@@ -12,10 +15,13 @@ spec:
 ---
 apiVersion: v1alpha1
 group: management
-scope: demostaging
 kind: VirtualAPIDefinition
 title: Griffin Instruments V1
 name: griffininstrumentsv1
+metadata:
+  scope:
+    kind: Environment
+    name: demostaging
 tags:
     - frontend
     - music
