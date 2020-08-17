@@ -33,9 +33,10 @@ nowait_run "amplify central $AMPLIFY_ARGS apply -f project/virtual-api/credentia
 nowait_run "amplify central $AMPLIFY_ARGS apply -f project/virtual-api/ratelimitrule.yaml"
 nowait_run "amplify central $AMPLIFY_ARGS apply -f project/virtual-api/routing.yaml"
 
-#desc "Start the agents"
+desc "Start the agents"
 #bgrun "xterm -e discovery/discovery_agent --pathConfig `pwd`/discovery"
-#bgrun "xterm -e governance/governance_agent --v7 --pathConfig `pwd`/governance/governance_agent.yml"
+bgrun "xterm -e governance/governance_agent --v7 --pathConfig `pwd`/governance/governance_agent.yml --centralEnvironment $AXWAY_DATAPLANE"
+bgrun "xterm -e governance/governance_agent --aws --pathConfig `pwd`/governance/governance_agent.yml --centralEnvironment $AWS_DATAPLANE"
 
 desc "Deploy the Virtual API to Staging"
 show "project/deployment.yaml"

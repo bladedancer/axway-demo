@@ -6,7 +6,8 @@ PLATFORM_URL=https://platform.axwaytest.net
 AUTH_URL=https://login-preprod.axway.com/auth
 
 # Amplify Central
-ENVIRONMENT="demostaging"
+AXWAY_DATAPLANE="axwaystaging"
+AWS_DATAPLANE="awsstaging"
 AMPLIFY_URL=https://gmatthews.dev.ampc.axwaytest.net
 
 # API Manager
