@@ -1,0 +1,32 @@
+apiVersion: v1alpha1
+group: management
+kind: VirtualAPI
+title: Griffin Instruments
+name: griffininstruments
+metadata:
+  scope:
+    kind: Environment
+    name: staging
+tags:
+  - frontend
+  - music
+spec:
+    description: Governance for Griffins Musical Instruments
+---
+apiVersion: v1alpha1
+group: management
+kind: VirtualAPIDefinition
+title: Griffin Instruments V1
+name: griffininstrumentsv1
+metadata:
+  scope:
+    kind: Environment
+    name: staging
+tags:
+    - frontend
+    - music
+attributes:
+    version: 1.0.0
+spec:
+    description: Governance rules for v1 of Musical Instruments.
+    virtualAPI: griffininstruments

@@ -1,0 +1,22 @@
+apiVersion: v1alpha1
+group: management
+kind: PathRoute
+title: Route for Musical Instruments v1
+name: griffininstrumentsv1route
+metadata:
+    scope:
+      kind: Environment
+      name: staging
+spec:
+    virtualAPIDefinition: griffininstrumentsv1
+    cors: allowallcors
+    auth: APIKeyAuthRule:apikeyauth
+    prefix: /api/music
+    route:
+        apiServiceInstance: internal/musicalinstrumentsv1ars
+        credential: HttpBasicCredential:musicalinstrumentcredentialdefault
+        perPath:
+            - path: /instruments/query
+              cors: localhostcors
+              auth: APIKeyAuthRule:apikeyauth
+              credential: APIKeyCredential:musicalinstrumentcredentialoverride

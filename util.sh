@@ -52,10 +52,10 @@ function show() {
 
   if [[ $NO_WAIT ]]; then
     cat $1
-    prompt
   else
     vi $1
   fi
+  prompt
 }
 
 started=""
@@ -86,6 +86,23 @@ function run() {
     wait
     return $r
 }
+
+function nowait_run() {
+    rate=25
+    if [ -n "$DEMO_RUN_FAST" ]; then
+      rate=1000
+    fi
+    echo "$green$1$reset" | pv -qL $rate
+    if [ -n "$DEMO_RUN_FAST" ]; then
+      sleep 0.5
+    fi
+    eval "$1"
+    r=$?
+    read -d '' -t 1 -n 10000 # clear stdin
+    prompt
+    return $r
+}
+
 
 function bgrun() {
     maybe_first_prompt

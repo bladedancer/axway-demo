@@ -1,0 +1,13 @@
+apiVersion: v1alpha1
+group: management
+kind: APIKeyAuthRule
+title: APIKey AuthRule for Griffin Instruments v1
+name: apikeyauth
+metadata:
+    scope:
+      kind: Environment
+      name: staging
+spec:
+    virtualAPIDefinition: griffininstrumentsv1
+    in: header
+    name: api-key
