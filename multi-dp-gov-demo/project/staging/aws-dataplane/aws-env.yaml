@@ -45,8 +45,7 @@ spec:
     dataplane: awsstaging
     description: Stage for preprod.
     policies:
-        writersauth: aws-tokenauth
-        readersauth: aws-tokenauth
+        demoauth: aws-tokenauth
 ---
 #
 # The discovery and onboarding of supported policies will be part of the agent installation in the future.

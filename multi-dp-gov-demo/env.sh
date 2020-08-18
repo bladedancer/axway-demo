@@ -1,5 +1,7 @@
 #!/bin/bash
 
+LOGLEVEL=debug
+
 # Platform: dev, preprod, staging, prod
 PLATFORM_ENV=staging 
 PLATFORM_URL=https://platform.axwaytest.net

@@ -28,4 +28,5 @@ yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.region $AW
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.accesskey $AWS_ACCESS_KEY_ID
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.secretkey $AWS_SECRET_ACCESS_KEY
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.sessionToken "$AWS_SECURITY_TOKEN"
+yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml log.level "$LOGLEVEL"
 show "$(dirname ${BASH_SOURCE})/governance/governance_agent.yml"

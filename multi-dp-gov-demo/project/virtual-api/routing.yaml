@@ -10,7 +10,7 @@ metadata:
 spec:
     virtualAPIDefinition: griffininstrumentsv1
     cors: allowallcors
-    auth: APIKeyAuthRule:apikeyauth
+    auth: JWTAuthRule:customjwtauth
     prefix: /api/music
     route:
         apiServiceInstance: internal/musicalinstrumentsv1ars
@@ -18,5 +18,4 @@ spec:
         perPath:
             - path: /instruments/query
               cors: localhostcors
-              auth: APIKeyAuthRule:apikeyauth
               credential: APIKeyCredential:musicalinstrumentcredentialoverride
