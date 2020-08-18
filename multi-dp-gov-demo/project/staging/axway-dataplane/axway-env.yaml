@@ -45,8 +45,7 @@ spec:
     dataplane: axwaystaging
     description: Stage for preprod.
     policies:
-        writersauth: axway-tokenauth
-        readersauth: axway-tokenauth
+      demoauth: axway-tokenauth
     organizationName: API Development
 ---
 #

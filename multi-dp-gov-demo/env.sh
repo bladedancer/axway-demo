@@ -28,5 +28,14 @@ ORG_ID=$ORG_ID
 TEAM="Default Team (Central)"
 TEAM_ID=$TEAM_ID
 
-# Script control
-#DEMO_RUN_FAST=1
+command -v aws-vault >/dev/null 2>&1 && {
+    if [ -z "$AWS_SECURITY_TOKEN" ]; then
+        echo "${blue}Connecting AWS Vault"
+        aws-vault exec admin -- env | egrep 'AWS_ACCESS_KEY_ID|AWS_SECRET_ACCESS_KEY|AWS_SECURITY_TOKEN' > aws.env 
+        . aws.env
+    fi
+}
+
+# Demo control
+DEMO_RUN_FAST=1
+NO_WAIT=1

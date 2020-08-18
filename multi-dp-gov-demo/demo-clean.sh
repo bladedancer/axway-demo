@@ -3,13 +3,13 @@
 ROOT=$(dirname ${BASH_SOURCE})
 
 . $ROOT/../util.sh
+. env.sh
 
 backtotop
 
 desc "Amplify Central Dataplane Governance Demo!"
 desc "This script clean up the demo."
 
-. env.sh
 AMPLIFY_ARGS="--baseUrl=$AMPLIFY_URL"
 
 desc "Deleting the environments"

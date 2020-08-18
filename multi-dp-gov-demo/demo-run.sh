@@ -4,13 +4,23 @@ ROOT=$(dirname ${BASH_SOURCE})
 
 . $ROOT/../util.sh
 
+yq() {
+    $ROOT/yq $@
+}
+
+
 backtotop
+
+. env.sh
+AMPLIFY_ARGS="--baseUrl=$AMPLIFY_URL"
 
 desc "Amplify Central Dataplane Governance Demo!"
 desc "This script will launch the agents and install the project."
 
-. env.sh
-AMPLIFY_ARGS="--baseUrl=$AMPLIFY_URL"
+# Update the tokens
+yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.accesskey $AWS_ACCESS_KEY_ID
+yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.secretkey $AWS_SECRET_ACCESS_KEY
+yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.sessionToken "$AWS_SECURITY_TOKEN"
 
 desc "Creating the ${green}internal${blue} environment"
 nowait_run "amplify central $AMPLIFY_ARGS apply -f project/internal/internal-env.yaml"

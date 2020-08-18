@@ -27,4 +27,5 @@ yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.pushTags f
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.region $AWS_REGION
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.accesskey $AWS_ACCESS_KEY_ID
 yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.secretkey $AWS_SECRET_ACCESS_KEY
+yq w -i $(dirname ${BASH_SOURCE})/governance/governance_agent.yml aws.auth.sessionToken "$AWS_SECURITY_TOKEN"
 show "$(dirname ${BASH_SOURCE})/governance/governance_agent.yml"

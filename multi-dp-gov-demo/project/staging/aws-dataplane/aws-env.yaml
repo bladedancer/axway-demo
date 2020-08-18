@@ -68,6 +68,8 @@ spec:
     config:
         "x-amazon-apigateway-authtype": "custom"
         "x-amazon-apigateway-authorizer": 
-            "authorizerUri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:934549265897:function:GreetAuthorizer/invocations"
+            "authorizerUri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:810085911474:function:DemoAuthorizer/invocations"
             "authorizerResultTtlInSeconds": 0
             "type": "token"
+
+            

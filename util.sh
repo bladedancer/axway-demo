@@ -27,7 +27,7 @@ function wait() {
 
 function desc() {
     maybe_first_prompt
-    echo "$blue# $@$reset"
+    echo -e "$blue# $@$reset"
     prompt
     wait
 }

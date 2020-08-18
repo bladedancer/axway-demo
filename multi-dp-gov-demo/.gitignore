@@ -1,5 +1,6 @@
 private_key.pem
 public_key.pem
+aws.env
 discovery
 governance
 yq
