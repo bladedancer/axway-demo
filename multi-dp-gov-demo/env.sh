@@ -10,7 +10,8 @@ AUTH_URL=https://login-preprod.axway.com/auth
 # Amplify Central
 AXWAY_DATAPLANE="axwaystaging"
 AWS_DATAPLANE="awsstaging"
-AMPLIFY_URL=https://gmatthews.dev.ampc.axwaytest.net
+#AMPLIFY_URL=https://gmatthews.dev.ampc.axwaytest.net
+AMPLIFY_URL=https://gamma.sandbox.ampc.axwaytest.net
 
 # API Manager
 APIMANAGER_HOST=localhost
