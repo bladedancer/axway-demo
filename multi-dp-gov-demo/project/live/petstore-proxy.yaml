@@ -1,0 +1,89 @@
+apiVersion: v1alpha1
+group: management
+kind: VirtualAPI
+title: Petstore API
+name: petstore
+metadata:
+  scope:
+    kind: Environment
+    name: staging
+tags:
+  - frontend
+  - petstore
+spec:
+    description: Governance for Petstore API
+---
+apiVersion: v1alpha1
+group: management
+kind: VirtualAPIDefinition
+title: Petstore V1
+name: petstorev1
+metadata:
+  scope:
+    kind: Environment
+    name: staging
+tags:
+    - frontend
+    - petstore
+attributes:
+    version: 1.0.5
+spec:
+    description: Governance rules for v1 of Petstore API.
+    virtualAPI: petstore
+---
+apiVersion: v1alpha1
+group: management
+kind: APIKeyAuthRule
+title: APIKey AuthRule for Petstore v1
+name: apikeyauth
+metadata:
+    scope:
+      kind: Environment
+      name: staging
+spec:
+    virtualAPIDefinition: petstorev1
+    in: header
+    name: mykey
+---
+apiVersion: v1alpha1
+group: management
+kind: RateLimitRule
+title: Rate limit for Petstore
+name: petstorev1ratelimit
+metadata:
+    scope:
+        kind: Environment
+        name: staging
+spec:
+    virtualAPIDefinition: petstorev1
+    transactionPerSecond: 100
+---
+apiVersion: v1alpha1
+group: management
+kind: PathRoute
+title: Route for Petstore v1
+name: petstorev1
+metadata:
+    scope:
+        kind: Environment
+        name: staging
+spec:
+    virtualAPIDefinition: petstorev1
+    auth: APIKeyAuthRule:apikeyauth
+    prefix: /api/petstore
+    route:
+        apiServiceInstance: internal/petstorev1
+---
+apiVersion: v1alpha1
+group: management
+kind: Deployment
+title: Petsore V1 on Axway API APIManager
+name: petstorev1
+metadata:
+    scope:
+        kind: Environment
+        name: staging
+spec:
+    virtualAPIDefinition: petstorev1
+    stage: axwaystaging/preprod
+    
