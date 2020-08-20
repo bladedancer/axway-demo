@@ -53,8 +53,8 @@ tags:
 spec:
   apiServiceRevision: petstorev1
   endpoint:
-  - host: "petstore.swagger.io"
+  - host: "petstore.execute-api.us-west-2.amazonaws.com"
     port: 80
     protocol: "http"
     routing:
-      basePath: "/v2"
+      basePath: "/petstore"
