@@ -33,17 +33,16 @@ spec:
 ---
 apiVersion: v1alpha1
 group: management
-kind: APIKeyAuthRule
-title: APIKey AuthRule for Petstore v1
-name: apikeyauth
+kind: JWTAuthRule
+title: AuthRule for Petstore v1
+name: petstoreauth
 metadata:
     scope:
       kind: Environment
       name: staging
 spec:
     virtualAPIDefinition: petstorev1
-    in: header
-    name: mykey
+    policy: demoauth
 ---
 apiVersion: v1alpha1
 group: management
@@ -56,7 +55,7 @@ metadata:
         name: staging
 spec:
     virtualAPIDefinition: petstorev1
-    transactionPerSecond: 100
+    transactionPerSecond: 42
 ---
 apiVersion: v1alpha1
 group: management
@@ -69,7 +68,7 @@ metadata:
         name: staging
 spec:
     virtualAPIDefinition: petstorev1
-    auth: APIKeyAuthRule:apikeyauth
+    auth: JWTAuthRule:petstoreauth
     prefix: /api/petstore
     route:
         apiServiceInstance: internal/petstorev1
@@ -86,4 +85,17 @@ metadata:
 spec:
     virtualAPIDefinition: petstorev1
     stage: axwaystaging/preprod
+---
+apiVersion: v1alpha1
+group: management
+kind: Deployment
+title: Petsore V1 on AWS API Gateway
+name: petstorev1aws
+metadata:
+    scope:
+        kind: Environment
+        name: staging
+spec:
+    virtualAPIDefinition: petstorev1
+    stage: awsstaging/preprod
     

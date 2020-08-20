@@ -40,5 +40,5 @@ command -v aws-vault >/dev/null 2>&1 && {
 }
 
 # Demo control
-DEMO_RUN_FAST=1
-NO_WAIT=1
+#DEMO_RUN_FAST=1
+#NO_WAIT=1
