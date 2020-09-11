@@ -64,3 +64,10 @@ helm upgrade --install --namespace apic-control apic-hybrid axway/apicentral-hyb
 
 kubectl get services -n apic-control
 kubectl get services -n apic-demo
+
+echo ======================
+echo ===    Done        ===
+echo ======================
+echo To conenct to the cluster run:
+echo export KUBECONFIG=$(k3d kubeconfig write $CLUSTER)
+echo
