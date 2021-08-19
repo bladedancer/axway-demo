@@ -1,0 +1,22 @@
+group: management
+apiVersion: v1alpha1
+kind: VirtualService
+name: webhooksite
+metadata:
+  scope:
+    kind: VirtualAPI
+    name: webhooksite
+spec:
+  prefix: /hook
+  route:
+    - service:
+        prefix: /9cf934cd-89b6-4b20-b5d1-dd3d18d8105c
+        protocol: https
+        http2: false
+        endpoints:
+          - host: webhook.site
+            port: 443
+      operations:
+        - id: getDemo
+          path: /demo
+          method: GET

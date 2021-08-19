@@ -1,0 +1,22 @@
+group: management
+apiVersion: v1alpha1
+kind: Environment
+name: prod
+title: Prod Environment
+spec: {}
+---
+apiVersion: v1alpha1
+group: management
+kind: GovernanceAgent
+name: amplify
+title: Amplify Gateway
+metadata:
+  scope:
+    kind: Environment
+    name: prod
+spec:
+  dataplaneType: amplify
+  config:
+    address:
+      interface: 0.0.0.0
+      port: 8080

@@ -1,0 +1,6 @@
+apiVersion: v1alpha1
+group: management
+kind: VirtualAPI
+name: webhooksite
+spec:
+  type: REST

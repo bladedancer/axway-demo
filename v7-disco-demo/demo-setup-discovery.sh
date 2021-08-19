@@ -13,7 +13,7 @@ yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.port 
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.auth.username $APIADMIN
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.auth.password $APIADMIN_PASSWORD
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml apimanager.ssl.insecureSkipVerify true
-yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.tenantID $ORG_ID
+yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.organizationID $ORG_ID
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.teamID $TEAM_ID
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.url $AMPLIFY_URL
 yq w -i $(dirname ${BASH_SOURCE})/discovery/discovery_agent.yml central.environment $ENVIRONMENT

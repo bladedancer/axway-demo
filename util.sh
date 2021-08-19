@@ -1,11 +1,11 @@
 #!/bin/bash
 
-readonly  reset=$(tput sgr0)
-readonly  red=$(tput bold; tput setaf 1)
-readonly  green=$(tput bold; tput setaf 2)
-readonly yellow=$(tput bold; tput setaf 3)
-readonly   blue=$(tput bold; tput setaf 6)
-readonly   colreset=$(tput bold; tput setaf 9)
+reset=$(tput sgr0)
+red=$(tput bold; tput setaf 1)
+green=$(tput bold; tput setaf 2)
+yellow=$(tput bold; tput setaf 3)
+blue=$(tput bold; tput setaf 6)
+colreset=$(tput bold; tput setaf 9)
 
 WAIT_TIMEOUT=0
 
@@ -23,6 +23,10 @@ function wait() {
   else
     read -rst "$WAIT_TIMEOUT"
   fi
+}
+
+function say() {
+    echo -e "$blue# $@$reset"
 }
 
 function desc() {

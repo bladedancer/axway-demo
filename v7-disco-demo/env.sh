@@ -15,8 +15,8 @@ APIMANAGER_PORT=8075
 
 # If DOSA is not set a new service account will be created
 DOSA=$DOSA
-DOSA_PRIV=./private_key.pem
-DOSA_PUB=./public_key.pem
+DOSA_PRIV=../../private_key.pem
+DOSA_PUB=../../public_key.pem
 
 # Credentials for API Manager
 APIADMIN=apiadmin

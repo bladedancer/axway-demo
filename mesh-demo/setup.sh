@@ -19,21 +19,17 @@ fi;
 # Run with AWS vault to allow for update of helm repos using MFA and s3.
 #
 if [ -z $AWS_SESSION_TOKEN ]; then
-    if [ ! -z $AWS_VAULT_PROFILE ]; then
+    if [ ! -z $AWS_PROFILE ]; then
         if [ ! command -v aws-vault &> /dev/null ]; then
             echo "You need to install aws-vault"
             exit 1
         else 
-            aws-vault exec $AWS_VAULT_PROFILE $0 $@
+            aws-vault exec $AWS_PROFILE $0 $@
             exit
         fi
     fi
 fi
 
-#
-# Setup the k3d cluster
-#
-. $ROOT/create-cluster.sh
 
 echo =======================
 echo Expand override
@@ -44,6 +40,11 @@ unzip -d override $OVERRIDE
 
 SECRET_NAME=$(grep secretName override/istioOverride.yaml | awk '{print $2}')
 DOMAIN=$(grep external-dns.alpha.kubernetes.io/hostname override/istioOverride.yaml | awk '{print $2}'  | sed 's/.$//g')
+
+#
+# Setup the k3d cluster
+#
+. $ROOT/create-cluster.sh
 
 #
 # Prepare the mesh

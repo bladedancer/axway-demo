@@ -1,0 +1,13 @@
+apiVersion: v1alpha1
+group: management
+kind: Deployment
+name: webhooksite-dep
+metadata:
+  scope:
+    kind: Environment
+    name: prod
+tags:
+  - v1
+spec:
+  virtualAPIRelease: webhooksite-1.0.0
+  virtualHost: ampgw.theworkpc.com

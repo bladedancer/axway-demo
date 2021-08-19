@@ -1,0 +1,36 @@
+apiVersion: v1alpha1
+group: management
+kind: OAS3Document
+name: webhooksite
+metadata:
+  scope:
+    kind: VirtualAPI
+    name: webhooksite
+spec:
+  virtualService: webhooksite
+  oas: {
+  "openapi": "3.0.3",
+  "info": {
+    "title": "VAP Demo API",
+    "description": "Expose demo APIs for use in AmpGW demo.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://ampgw.theworkpc.com",
+      "description": "My laptop."
+    }
+  ],
+  "paths": {
+    "/hook/demo": {
+      "get": {
+        "summary": "The demo api.",
+        "responses": {
+          "200": {
+            "description": "resp"
+          }
+        }
+      }
+    }
+  }
+}
